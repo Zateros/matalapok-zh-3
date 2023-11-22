@@ -14,13 +14,13 @@ jobs:
         uses: lvignoli/typst-action@v0
         with:
           source_file: |
-            *.typ
+            harmadik_zh_tetel.typ
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDFs
           path: |
-            *.pdf
+            harmadik_zh_tetel.pdf
       - uses: "marvinpinto/action-automatic-releases@latest"
         name: Release
         with:
@@ -29,4 +29,4 @@ jobs:
           prerelease: false
           title: "Masszív ápdét"
           files: |
-            *.pdf
+            harmadik_zh_tetel.pdf
