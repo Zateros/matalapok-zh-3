@@ -105,6 +105,23 @@ $A in KK^(n times n)$ szinguláris mátrix öt ekvivalens jellemzése:
 5. _A_ sorai lin. összefüggők
 ]
 
+== 20.7
+
+Legyen $A in KK^(n times n)$ egy (alsó vagy felső) háromszögmátrix. Ekkor karakterisztikus polinomja a következő (háromszögmátrix determinánsa a főátlóbeli elemek szorzata):
+
+#set math.mat(delim: "|")
+$ P(lambda) eq mat(
+  a_(1 1)-lambda, 0, dots, 0;
+  a_(2 1), a_(2 2) - lambda, dots, 0;
+  dots.v, dots.v, , dots.v;
+  a_(n 1), a_(n 2), dots, a_(n n) - lambda
+) eq (a_(1 1)-lambda) dot (a_(2 2) - lambda) dot dots dot (a_(n n) - lambda) space space (lambda in KK) $
+#set math.mat(delim: "[")
+
+Ugyanez lesz a karakterisztikus polinom felső háromszögmátrix esetén is.
+
+Innen pedig az következik, hogy a háromszögmátrix sajátértékei a főátló elemei, s mindegyik sajátérték algebrai multiplicitása annyi, ahányszor a főátlóban szerepel.
+
 == 20.8
 
 Legyen $A in KK^(n times n) "és" lambda in "Sp"(A)$. Ekkor $lambda$-hoz tartozó sajátvektorokból és a nullvektorból álló
@@ -113,7 +130,17 @@ $ W_lambda colon.eq W_lambda (A) colon.eq {x in KK^n | A x eq lambda x } $
 
 halmaz altér $KK^n$-ben, melynek dimenziója $n - "rang"(A - lambda I)$. A $lambda$ sajátértékhez végtelen sok sajátvektor tartozik. 
 
-=== TODO bizonyítás
+=== Bizonyítás
+
+$ W_lambda eq {x in KK^n | A x eq lambda x} eq {x in KK^n | (A - lambda I) x eq 0 } eq M_h $
+
+A homogén lineáris egyenletrendszerekről tanultak értelmében tehát a fenti halmaz altér, melynek dimenziója:
+
+$ dim W_lambda eq dim M_h eq n - "rang"(A - lambda I) $
+
+Mivel $dim W_lambda eq n - "rang"(A - lambda I) gt.eq 1$, ezért a sajátvektorok halmaza ($W_lambda \ {0}$) valóban végtelen.
+
+Rögzített sajátérték esetén tehát nem az az igazi kérdés, hogy hány sajátvektor tartozik hozzá, hanem az, hogy maximálisan hány független sajátvektor tartozik hozzá, azaz mennyi a $W_lambda$ altér dimenziója.
 
 == 20.10
 
@@ -124,7 +151,6 @@ $ forall lambda in "Sp"(A): space 1 lt.eq g(lambda) lt.eq a(lambda) lt.eq n $
 Legyen $A in KK^(n times n)$ és jelölje a $lambda$ sajátérték algebrai multiplicitását $a(lambda)$, geometriai multiplicitását pedig $g(lambda)$. Ekkor
 
 $ exists S.B. arrow.l.r.double.long sum_(lambda in "Sp"(A)) a(lambda) eq n space "és" space forall lambda in "Sp"(A): space g(lambda) eq a(lambda) $
-
 
 // 20. fejezet bizonyítandó
 //  - Sajátértékek a karakterisztikus polinom gyökei
